@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="hero-section">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+        <div class="mini-title">
+            <span class="dot"></span> build everything
+        </div>
+
+        <h1 class="main-title">
+            Unveiling My<br>
+            Professional Odyssey:<br>
+            Portfolio Highlights
+        </h1>
+
+        <p class="subtitle">
+            {{ about.text|safe }}
+        </p>
+
+        <a href="https://t.me/Muhammadjon_Arabov" target="_blank" class="btn btn-primary hero-btn">
+            Get Started
+        </a>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-right">
+        <div class="hero-image-box">
+            {% if about.image %}
+                <img src="{{ about.image.url }}" alt="About" class="hero-img">
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
