@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center my-5">My Experience</h1>
+
+<div class="experience-section">
+    {% if experiences %}
+        {% for exp in experiences %}
+        <div class="experience-item">
+
+            <!-- IMAGE -->
+            {% if exp.image %}
+            <div class="experience-image">
+                <img src="{{ exp.image.url }}" alt="{{ exp.title|striptags }}">
+            </div>
+            {% endif %}
+
+            <!-- TEXT -->
+            <div class="experience-text">
+                <h3>{{ exp.title|safe }}</h3>
+                <p>{{ exp.description|safe }}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-center">No experience found.</p>
+    {% endif %}
+</div>
+{% endblock %}

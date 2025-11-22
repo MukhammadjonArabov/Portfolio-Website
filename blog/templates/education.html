@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/education.css' %}">
+{% endblock %}
+
+<div class="education-section">
+    {% if educations %}
+        {% for edu in educations %}
+        <div class="education-item">
+
+            <!-- IMAGE (chap) -->
+            {% if edu.image %}
+            <div class="education-image">
+                <img src="{{ edu.image.url }}" alt="{{ edu.title|striptags }}">
+            </div>
+            {% endif %}
+
+            <!-- TEXT (o'ng) -->
+            <div class="education-text">
+                <h3>{{ edu.title|safe }}</h3>
+                <p>{{ edu.description|safe }}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-center">No education records found.</p>
+    {% endif %}
+</div>
+{% endblock %}
