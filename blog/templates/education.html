@@ -1,32 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/education.css' %}">
 {% endblock %}
 
-<div class="education-section">
-    {% if educations %}
-        {% for edu in educations %}
-        <div class="education-item">
+{% block content %}
+<div class="list-page list-page--large-img">
+    <header class="page-header">
+        <h1>Education</h1>
+        <p class="lead"><span class="lead-dot" aria-hidden="true"></span>Formal education and relevant courses.</p>
+    </header>
 
-            <!-- IMAGE (chap) -->
-            {% if edu.image %}
-            <div class="education-image">
-                <img src="{{ edu.image.url }}" alt="{{ edu.title|striptags }}">
-            </div>
-            {% endif %}
-
-            <!-- TEXT (o'ng) -->
-            <div class="education-text">
-                <h3>{{ edu.title|safe }}</h3>
-                <p>{{ edu.description|safe }}</p>
-            </div>
-
-        </div>
-        {% endfor %}
-    {% else %}
-        <p class="text-center">No education records found.</p>
-    {% endif %}
+    <section class="items">
+        {% if educations %}
+            {% for edu in educations %}
+            <article class="item">
+                {% if edu.image %}
+                <img src="{{ edu.image.url }}" alt="{{ edu.title|striptags }}" class="item-img">
+                {% endif %}
+                <div class="item-body">
+                    <h3 class="item-title">{{ edu.title|safe }}</h3>
+                    <p class="item-desc">{{ edu.description|safe }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">No education records found.</p>
+        {% endif %}
+    </section>
 </div>
 {% endblock %}

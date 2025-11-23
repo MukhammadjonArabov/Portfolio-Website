@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="list-page">
+  <article class="post-detail">
+    <header class="page-header">
+      <h1>{{ post.title|safe }}</h1>
+    </header>
+
+    {% if post.image %}
+    <div class="post-image">
+      <img src="{{ post.image.url }}" alt="{{ post.title|striptags }}">
+    </div>
+    {% endif %}
+
+    <div class="post-body">
+      {{ post.description|safe }}
+    </div>
+  </article>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load youtube_extras %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="list-page">
+  <header class="page-header">
+    <h1>Projects</h1>
+    <p class="lead"><span class="lead-dot" aria-hidden="true"></span>Selected projects and demos.</p>
+  </header>
+
+  {% if projects %}
+  <section class="projects-grid">
+    {% for p in projects %}
+    <article class="project-card">
+      {% if p.yutube_url %}
+      {% with id=p.yutube_url|youtube_id %}
+      <div class="video-thumb">
+        <a href="https://www.youtube.com/watch?v={{ id }}" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.youtube.com/vi/{{ id }}/hqdefault.jpg" alt="{{ p.title|striptags }}">
+        </a>
+        <div class="video-actions">
+          <a class="yt-btn" href="https://www.youtube.com/watch?v={{ id }}" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+        </div>
+      </div>
+      {% endwith %}
+      {% endif %}
+      <div class="project-body">
+        <h3 class="item-title">{{ p.title|safe }}</h3>
+        <p class="item-desc">{{ p.description|safe }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+  {% else %}
+    <p class="text-center">No projects yet.</p>
+  {% endif %}
+
+</div>
+{% endblock %}

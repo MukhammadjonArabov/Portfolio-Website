@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="list-page">
+  <header class="page-header">
+    <h1>Posts</h1>
+    <p class="lead"><span class="lead-dot" aria-hidden="true"></span>Latest posts and articles.</p>
+  </header>
+
+  <section class="items">
+    {% if posts %}
+      {% for post in posts %}
+      <article class="item">
+          {% if post.image %}
+          <img class="item-img" src="{{ post.image.url }}" alt="{{ post.title|striptags }}">
+          {% endif %}
+          <div class="item-body">
+            <h3 class="item-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title|safe }}</a></h3>
+            <p class="item-desc">{{ post.description|safe }}</p>
+          </div>
+      </article>
+      {% endfor %}
+    {% else %}
+      <p class="text-center">No posts yet.</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

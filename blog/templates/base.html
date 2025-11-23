@@ -25,8 +25,8 @@
         <li><a href="{% url 'about' %}">About Me</a></li>
         <li><a href="{% url 'experience' %}">Experience</a></li>
         <li><a href="{% url 'education' %}">Education</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Post</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li><a href="{% url 'post' %}">Post</a></li>
     </ul>
 </nav>
 
@@ -40,8 +40,8 @@
     <div class="media-links">
         {% for m in medias %}
             {% if m.image %}
-            <a href="{{ m.url }}" target="_blank">
-                <img src="{{ m.image.url }}" class="social-icon">
+            <a href="{{ m.url }}" target="_blank" rel="noopener noreferrer">
+                <img src="{{ m.image.url }}" alt="{{ m.title|default:'Social' }}" class="social-icon">
             </a>
             {% endif %}
         {% endfor %}

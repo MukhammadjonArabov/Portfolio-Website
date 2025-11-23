@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class AboutMe(models.Model):
@@ -19,6 +20,12 @@ class Media(models.Model):
 class Post(models.Model):
     title = RichTextUploadingField()
     description = RichTextUploadingField()
+    image = models.ImageField(upload_to="posts/", null=True, blank=True)
+    views = models.PositiveIntegerField(default=0)
+    viewers = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='viewed_posts')
+
+    def __str__(self):
+        return getattr(self, 'title', 'Post')
 
 class Experience(models.Model):
     title = RichTextUploadingField()
