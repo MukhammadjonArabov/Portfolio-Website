@@ -1,0 +1,288 @@
+body {
+    background: #031633;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding-top: 100px; 
+}
+
+/* NAVBAR */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #071d3e;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* logo va matn orasidagi masofa */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    font-size: 40px;
+    color: #4da4ff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+    list-style: none;
+    align-items: center; /* logoga nisbatan markazda turadi */
+}
+
+/* Center the nav links horizontally while keeping the logo on the left */
+.nav .nav-links {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav-links a {
+    color: #9dbfe3;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    justify-content: center; /* gorizontal markazlash */
+    align-items: center;     /* vertikal markazlash */
+    gap: 10px;               /* matn va rasm orasidagi masofa kamaytirildi */
+    padding: 0 20px;         /* chap va o‘ng tomondan biroz bo‘sh joy */
+    min-height: calc(100vh - 120px); /* ekran bo‘yicha markazlash, navbar balandligi hisobga olinadi */
+}
+
+.hero-left {
+    width: 50%;
+    max-width: 490px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* matn chapdan tekislanadi */
+    text-align: left;
+}
+
+.mini-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    color: #9dbfe3;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #27c93f;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.main-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 25px;
+    color: #9dbfe3;
+    margin-bottom: 25px;
+    max-width: 450px; /* yon tomondan qisqartirish */
+}
+
+/* BUTTON */
+.btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block; 
+}
+
+.btn-primary {
+    background: #4da4ff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1c7ce3;
+}
+
+/* HERO IMAGE */
+.hero-right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end; /* rasm o‘ng tomonda turadi */
+}
+
+.hero-image-box {
+    width: 70%; /* hozirgi o‘lcham */
+    height: 550px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* FOOTER / SOCIAL ICONS */
+.footer {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.media-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.social-icon:hover {
+    transform: scale(1.12);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        gap: 30px;
+        padding-left: 20px;
+    }
+    .hero-left, .hero-right {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-image-box {
+        width: 80%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+        position: static; /* reset absolute positioning on small screens */
+        transform: none;
+    }
+    .main-title {
+        font-size: 32px;
+    }
+    .subtitle {
+        font-size: 16px;
+        max-width: 90%;
+    }
+    .hero-image-box {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* Minimal list layout for Education, Experience, Projects, Posts */
+:root{
+    --bg: #031633;
+    --card: #071d3e;
+    --muted: #9dbfe3;
+    --accent: #4da4ff;
+    --text: #ffffff;
+}
+
+.list-page{
+    padding: 48px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--text);
+}
+
+.page-header{ text-align: left; margin-bottom: 24px; }
+.page-header h1{ margin:0 0 6px; font-size:28px; }
+.page-header .lead{ margin:0; color:var(--muted); font-size:14px; }
+
+/* small lead dot matched to About Me green */
+.lead-dot{ display:inline-block; width:8px; height:8px; background:#27c93f; border-radius:50%; margin-right:10px; vertical-align:middle; box-shadow: 0 0 8px rgba(39,201,63,0.18); }
+
+.items{ display:flex; flex-direction:column; gap:18px; }
+.item{ display:flex; gap:16px; align-items:flex-start; background:var(--card); padding:14px; border-radius:10px; }
+.item-img{ width:240px; height:160px; object-fit:cover; border-radius:8px; flex:0 0 240px; }
+.item-body{ flex:1; }
+.item-title{ margin:0 0 6px; font-size:18px; }
+.item-desc{ margin:0; color:var(--muted); font-size:14px; line-height:1.4; }
+.muted{ color:var(--muted); font-size:13px; }
+
+.post-image img{ width:100%; height:auto; border-radius:10px; margin-bottom:16px; }
+
+/* Projects grid */
+.projects-grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:18px;
+}
+.project-card{ background:var(--card); padding:12px; border-radius:10px; }
+.video-wrapper{ position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:8px; }
+.video-wrapper iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+.video-thumb{ position:relative; border-radius:8px; overflow:hidden; }
+.video-thumb img{ display:block; width:100%; height:auto; }
+.video-actions{ display:flex; justify-content:center; margin-top:10px; }
+.yt-btn{ display:inline-block; background:var(--accent); color:#fff; padding:8px 14px; border-radius:8px; text-decoration:none; font-weight:600; }
+.yt-btn:hover{ background:#3a91e6; }
+.project-body{ padding-top:10px; }
+
+.text-center{ text-align:center; color:var(--muted); }
+
+@media (max-width:900px){
+    .item{ flex-direction:column; align-items:center; text-align:center; }
+    .item-img{ width:100%; height:220px; max-width:640px; }
+    .page-header{ text-align:center; }
+}
+
+@media (max-width:720px){
+    .projects-grid{ grid-template-columns: 1fr; }
+}
+
+@media (min-width:901px) and (max-width:1200px){
+    .item-img{ width:180px; height:120px; flex:0 0 180px; }
+}
+

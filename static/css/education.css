@@ -1,0 +1,50 @@
+/* Minimal list layout for Education & Experience pages */
+:root{
+  --bg: #031633;
+  --card: #071d3e;
+  --muted: #9dbfe3;
+  --accent: #4da4ff;
+  --text: #ffffff;
+}
+
+.list-page{
+  padding: 48px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text);
+}
+
+.page-header{ text-align: left; margin-bottom: 24px; }
+.page-header h1{ margin:0 0 6px; font-size:28px; }
+.page-header .lead{ margin:0; color:var(--muted); font-size:14px; }
+
+.items{ display:flex; flex-direction:column; gap:18px; }
+.item{ display:flex; gap:16px; align-items:flex-start; background:var(--card); padding:14px; border-radius:10px; }
+.item-img{ width:240px; height:160px; object-fit:cover; border-radius:8px; flex:0 0 240px; }
+.item-body{ flex:1; }
+.item-title{ margin:0 0 6px; font-size:18px; }
+.item-desc{ margin:0; color:var(--muted); font-size:14px; line-height:1.4; }
+
+.text-center{ text-align:center; color:var(--muted); }
+
+@media (max-width:600px){
+  .item{ flex-direction:column; align-items:center; text-align:center; }
+  .item-img{ width:100%; height:160px; max-width:360px; }
+  .page-header{ text-align:center; }
+}
+
+/* Larger images for Education page */
+.list-page--large-img .item-img{
+  width:260px;
+  height:220px;
+  flex:0 0 260px;
+  border-radius:8px;
+}
+
+@media (max-width:600px){
+  .list-page--large-img .item-img{
+    width:100%;
+    height:180px;
+    max-width:420px;
+  }
+}

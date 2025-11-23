@@ -21,7 +21,6 @@ db.sqlite3
 # Media va static fayllar (agar loyihada bor bo‘lsa)
 media/
 staticfiles/
-static/
 
 # IDE va editor fayllari
 .vscode/
